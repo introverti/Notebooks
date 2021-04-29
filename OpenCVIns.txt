@@ -1,0 +1,18 @@
+#依赖项安装
+sudo apt-get install build-essential libgtk2.0-dev libvtk5-dev libjpeg-dev libtiff4-dev libjasper-dev libopenexr-dev libtbb-dev
+#会出现某些安装包被替代 no candidate 和 不能定位地问题
+
+#libtiff4-dev 
+#should be replaced by
+#libtiff-dev:i386 libtiff-dev
+sudo apt-get install libtiff-dev:i386 libtiff-dev
+
+#libvtk5-dev
+#should be replaced by
+#libvtk7-dev libvtk6-dev
+sudo apt-get install libvtk7-dev libvtk6-dev
+
+#Unable to locate package libjasper-dev
+sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
+sudo apt update
+sudo apt install libjasper1 libjasper-dev
