@@ -1,0 +1,45 @@
+#1
+sudo apt-get update
+sudo apt-get install -y python3-wstool python3-rosdep ninja-build stow
+
+#2
+mkdir catkin_ws //建立一个子目录。参数：-p 确保目录名称存在，如果目录不存在的就新创建一个。
+cd catkin_ws //change directory
+wstool init src
+wstool merge -t src https://raw.githubusercontent.com/cartographer-project/cartographer_ros/master/cartographer_ros.rosinstall
+wstool update -t src
+//如果出现fatal：Failed to connect to github.com port 443: connection refused，是因为要翻墙
+
+#3
+sudo rosdep init//如果initialize过会报错，可以无视
+rosdep update
+rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y //这里下载时间较长
+//rosdep install --from-paths src --ignore-src --rosdistro=noetic -y
+//安装完成显示：#All required rosdeps installed successfully
+
+#4
+src/cartographer/scripts/install_abseil.sh//手动安装 abseil-cpp library
+//你可能需要删除ros自带的abseil-app防止冲突
+//sudo apt-get remove ros-${ROS_DISTRO}-abseil-cpp
+//ex:sudo apt-get remove ros-noetic-abseil-cpp
+
+#5
+catkin_make_isolated --install --use-ninja//编译，过程较慢
+source install_isolated/setup.bash//添加环境
+
+#6
+//下载德意志博物馆实例
+wget -P ~/Downloads https://storage.googleapis.com/cartographer-public-data/bags/backpack_2d/cartographer_paper_deutsches_museum.bag
+roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=${HOME}/Downloads/cartographer_paper_deutsches_museum.bag
+
+#
+df -hl //disk free
+//-H, --si,print sizes in powers of 1000 (e.g., 1.1G)
+//-l, --local,limit listing to local file systems
+man df //查看df命令行的在线帮助
+
+#
+ls -l /dev
+cd liadr_ws
+source devel/setup.bash
+roslaunch ....
