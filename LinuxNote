@@ -1,0 +1,22 @@
+# move 
+cd
+
+# creat new directory 
+mkdir
+#删除非空目录
+rm -rf 
+#process
+
+CTRL+:
+z hang up
+c end
+
+bg//make process background
+fg//show last process
+
+#Kdevelop IDE
+To import exsiting project, choose the above directory where the CMakeList.txt located.
+To enter debug mode,following code need to be add to CMakeList.txt:
+set( CMAKE_BUILD_TYPE "Debug")
+To show the icon of break point and line number:
+In Settings choose Configure Kdevelop and then in Appperance,Borders check Show icon border and Show line numbers.

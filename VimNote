@@ -1,0 +1,86 @@
+This a summary of differents operators in vim.
+As proposed in official vimtutor, we should learn to use these command either to memorize them.
+
+#1 file operator
+ 1) generally to open a txt file type vim+%{filename}.
+ 2) to quit current editor without saving any changes type :q! (attention to :).
+ 3) to quit current editor and save changes made type :wq.
+ 4) :w+{filename} to save as new file.
+ 5) :!rm+{filename} to remove files.
+
+#2 cursor operator
+ 1) in vim we can move cursor with arrow key or hjkl:
+         ^
+         k
+     <h     l>
+         j
+         v
+ 2) press 0 to go to the debut of line.
+ 3) press e to shift between words.
+
+#3 to add text
+ 1) press i to enter insert mode,text will be added before cursor.
+ 2) press a to enter append mode,text will be added after cursor.
+ 3) press s to delete current character and enter insert mode.
+ 4) o open a new line below current cursor.
+ 5) O does the same while the new line is above.
+
+#4 to delete text
+ 1) use x to remove certain character.
+ 2) use dw to remove a whole word and the space after it.
+ 3) use d$ to remove the end of line.
+ 4) de also detele a whole,while it will not delete the blank space.
+ 5) number can be insert between dw and de to multiple the motion.
+ 6) use dd to remove the entire line and p to paste it somewhere else.
+
+#5 undo command
+ 1) use u undo the latest operation.
+ 2) U will undo all the motion to this line.
+ 3) CTRL+R will to undo the undo's.
+
+#6 replace command
+ 1) r+{aim charactor} allow us to replace certain charactor.
+ 2) enter ce to correct until the end of a word.
+ 3) c$ delete the end of line and enter append mode.
+ 4) number can be insert after c to repeat motion.
+
+#7 global view
+ 1) CTRL+G to view the lines and percentage of current location. 
+ 2) Press gg to return to the start of file.
+ 3) SHIFT+g to the end of file. 
+ 4) Enter the aim line and press G or gg to move.
+
+#8 search command
+ 1) Type / then follow with the target to search in file.
+ 2) ? will do the same search will in backward.
+ 3) press n to continue the search.
+ 4) press N to search in the opposite direction.
+ 5) CTRL+o will go back to where we are from.
+ 6) CTRL+i goes forward.
+ 7) % helps search and move cursor to matching (),[],{},etc.
+ 8) Typing ":set xxx" sets the option "xxx".  Some options are:
+  	'ic' 'ignorecase'	ignore upper/lower case when searching
+	'is' 'incsearch'	show partial matches for a search phrase
+	'hls' 'hlsearch'	highlight all matching phrase.
+     Prepend "no" to switch an option off:   :set noic
+
+#9 substitute command
+ 1) at the debut of certain line use :s/{old}/{new}.
+ 2) :s/{old}/{new}/g will do for the whole line.
+ 3) to sepecific line number use :{debut},{end}s/{old}/{new}/g.
+ 4) :%s/{old}/{new}/g to change in whole file.
+ 5) :%s/{old}/{new}/gc add a prompt to every occurrence.
+
+#10 run extrenal command
+ 1):!+{command}.
+ 2) insert extrenal command, :r+{filename}. :r !ls to preview the context.
+
+#11 selecting
+ 1)press v to start, and : to end. Text will be highlighted.
+ 2)v+y to copy,and p to paste.
+
+#12 Useful mode
+ 1) press F1 to entrer online help
+ 2) :q to quit.
+ 3) CTRL+W to switch between windows.
+ 4) CTRL+D and <TAB> for completion mode.
