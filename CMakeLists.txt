@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 project(project name)
 
 #添加C++11
-set(CMAKE_CXX_FLAGS "-std+c++11")
+set(CMAKE_CXX_FLAGS "-std=c++11")
 
 #Eiegn库默认安装地址
 include_directories("/usr/include/eigen3")
