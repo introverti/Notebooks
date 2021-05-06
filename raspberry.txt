@@ -1,0 +1,16 @@
+#调试RaspberryPi
+#树莓派 内安装ubuntu 20.04 支持gpio库
+cd /sys/kernel/debug
+cat gpio
+#可以查看gpio信息
+#会出现 cd permission denied 的问题，给予权限然后访问
+sudo chmod -R 777  /sys/kernel/debug
+
+#RaspberryPi 4B CPU 温度很高 需要额外的散热
+#可以获取CPU 温度(需要除以1000，单位为摄氏度）
+cd /sys/class/thermal/thermal_zone0
+cat temp
+
+#当前是在RaspberryPi 4B + 16GB SDcard 上使用ubuntu 感觉会有明显的卡顿
+#下一步测试在 64 GB SDcard上使用 ubuntu mate 
+#并尝试安装 Ros 和调试 雷达和IMU 模块
