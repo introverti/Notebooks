@@ -55,3 +55,6 @@ ls -l /dev
 cd liadr_ws
 source devel/setup.bash
 roslaunch ....
+
+roslaunch jy901_imu jy901_imu.launch
+roslaunch ydlidar lidar_view.launch
