@@ -58,3 +58,7 @@ roslaunch ....
 
 roslaunch jy901_imu jy901_imu.launch
 roslaunch ydlidar lidar_view.launch
+catkin_make_isolated --install --use-ninja
+rosrun rqt_tf_tree rqt_tf_tree
+rostopic echo /scan -n1
+timedatectl
