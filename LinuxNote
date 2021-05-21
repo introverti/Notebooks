@@ -20,3 +20,10 @@ To enter debug mode,following code need to be add to CMakeList.txt:
 set( CMAKE_BUILD_TYPE "Debug")
 To show the icon of break point and line number:
 In Settings choose Configure Kdevelop and then in Appperance,Borders check Show icon border and Show line numbers.
+
+#下载sublime_text
+#解压后改名并移动到/opt 路径下
+mv Sublime_Text_3 sublime_text
+mv sublime_text /opt/
+#建立软连接 可以用subl在console中使用
+sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/subl
